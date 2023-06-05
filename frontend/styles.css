@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-bottom: 1em;
+}
+
+input[type=text] {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    display: block;
+    width: 300px;
+}
+
+button {
+    padding: 0.5em 1em;
+    color: white;
+    border: none;
+    margin-top: 1em;
+}
+
+#add-to-queue-form > button[type=submit] {
+    background-color: #008CBA; /* Blue */
+}
+
+#start-job {
+    background-color: #4CAF50; /* Green */
+}
+
+button:hover {
+    opacity: 0.8;
+}
