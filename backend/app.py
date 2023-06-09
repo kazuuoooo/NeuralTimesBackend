@@ -83,7 +83,7 @@ def job():
         run_command(['git', 'clone', '-b', BRANCH_NAME, REPO_URL], check=True, cwd=os.curdir)
         # Install npm in the repository directory
         npm_install_command = ['npm', 'install']
-        subprocess.run(npm_install_command, check=True, cwd=REPO_DIR)
+        subprocess.run(npm_install_command, check=True, cwd=os.path.join(REPO_DIR, 'neuraltimes-generation-scripts'))
         
     
 
@@ -111,12 +111,6 @@ def job():
 
         # Run the script
         run_command(['python', 'writer.py'], check=True, cwd=os.path.join(REPO_DIR, 'neuraltimes-generation-scripts'))
-
-
-    # Once the queue is empty, stage, commit, and push changes
-    run_command(['git', 'add', '@elegantstack/site/content/posts', '-A'], check=True, cwd=REPO_DIR)
-    run_command(['git', 'commit', '-m', 'Processed all items'], check=True, cwd=REPO_DIR)
-    run_command(['git', 'push', 'origin', BRANCH_NAME], check=True, cwd=REPO_DIR)
 
 
     update_running = False
