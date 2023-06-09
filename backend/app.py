@@ -81,6 +81,9 @@ def job():
         # Repository doesn't exist, clone it
         logging.info("Cloning repository...")
         run_command(['git', 'clone', '-b', BRANCH_NAME, REPO_URL], check=True, cwd=os.curdir)
+        # Install npm in the repository directory
+        npm_install_command = ['npm', 'install']
+        subprocess.run(npm_install_command, check=True, cwd=REPO_DIR)
         
     
 
